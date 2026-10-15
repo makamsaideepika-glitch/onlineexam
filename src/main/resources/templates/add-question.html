@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Question - ExamPortal</title>
+
+    	<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            Online Examination 
+        </div>
+
+        <div class="nav-links">
+            <a href="/admin/dashboard">Dashboard</a>
+            <a href="/admin/questions">Questions</a>
+            <a href="/admin/results">Results</a>
+            <a href="/admin/logout">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Add Question Section -->
+    <section class="auth-container">
+
+        <div class="auth-card" style="width: 600px;">
+
+            <div style="
+                text-align:center;
+                font-size:55px;
+                margin-bottom:10px;
+            ">
+                📝
+            </div>
+
+            <h2>Add New Question</h2>
+
+            <p class="subtitle">
+                Create a new question for the online examination.
+            </p>
+
+
+            <!-- Success Message -->
+            <div th:if="${message}"
+                 style="
+                    background:#ecfdf5;
+                    color:#047857;
+                    padding:12px;
+                    border-radius:8px;
+                    margin-bottom:20px;
+                    text-align:center;
+                 "
+                 th:text="${message}">
+            </div>
+
+
+            <form action="/admin/questions/add"
+                  method="post">
+
+                <!-- Question -->
+                <div class="form-group">
+
+                    <label>Question</label>
+
+                    <input type="text"
+                           name="question_text"
+                           placeholder="Enter the question"
+                           required>
+
+                </div>
+
+
+                <!-- Option 1 -->
+                <div class="form-group">
+
+                    <label>Option 1</label>
+
+                    <input type="text"
+                           name="option1"
+                           placeholder="Enter option 1"
+                           required>
+
+                </div>
+
+
+                <!-- Option 2 -->
+                <div class="form-group">
+
+                    <label>Option 2</label>
+
+                    <input type="text"
+                           name="option2"
+                           placeholder="Enter option 2"
+                           required>
+
+                </div>
+
+
+                <!-- Option 3 -->
+                <div class="form-group">
+
+                    <label>Option 3</label>
+
+                    <input type="text"
+                           name="option3"
+                           placeholder="Enter option 3"
+                           required>
+
+                </div>
+
+
+                <!-- Option 4 -->
+                <div class="form-group">
+
+                    <label>Option 4</label>
+
+                    <input type="text"
+                           name="option4"
+                           placeholder="Enter option 4"
+                           required>
+
+                </div>
+
+
+                <!-- Correct Answer -->
+                <div class="form-group">
+
+                    <label>Correct Answer</label>
+
+                    <select name="correct_answer" required>
+
+                        <option value="">
+                            Select the correct option
+                        </option>
+
+                        <option value="1">
+                            Option 1
+                        </option>
+
+                        <option value="2">
+                            Option 2
+                        </option>
+
+                        <option value="3">
+                            Option 3
+                        </option>
+
+                        <option value="4">
+                            Option 4
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Buttons -->
+                <button type="submit"
+                        class="form-button">
+
+                    Add Question
+
+                </button>
+
+            </form>
+
+
+            <div style="
+                text-align:center;
+                margin-top:20px;
+            ">
+
+                <a href="/admin/dashboard"
+                   style="color:#4f46e5; font-weight:600;">
+
+                    ← Back to Admin Dashboard
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+</body>
+
+</html>

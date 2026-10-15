@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Questions - ExamPortal</title>
+
+  	<link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        .question-table th,
+        .question-table td {
+            vertical-align: middle;
+        }
+
+        .question-text {
+            text-align: left;
+            min-width: 250px;
+        }
+
+        .delete-btn {
+            display: inline-block;
+            padding: 8px 14px;
+            background: #dc2626;
+            color: white;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .delete-btn:hover {
+            background: #b91c1c;
+            transform: translateY(-1px);
+        }
+
+        .add-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #4f46e5;
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .add-btn:hover {
+            background: #3730a3;
+            transform: translateY(-2px);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            ExamPortal
+        </div>
+
+        <div class="nav-links">
+            <a href="/admin/dashboard">Dashboard</a>
+            <a href="/admin/questions/add">Add Question</a>
+            <a href="/admin/results">Results</a>
+            <a href="/admin/logout">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Questions Section -->
+    <section class="dashboard">
+
+        <div class="dashboard-header">
+
+            <h1>Manage Questions</h1>
+
+            <p>
+                View and manage all examination questions.
+            </p>
+
+        </div>
+
+
+        <!-- Add Question Button -->
+        <div style="
+            margin-bottom:25px;
+            text-align:right;
+        ">
+
+            <a href="/admin/questions/add"
+               class="add-btn">
+
+                + Add New Question
+
+            </a>
+
+        </div>
+
+
+        <!-- Questions Table -->
+        <div class="table-container">
+
+            <table class="question-table">
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Question</th>
+                        <th>Option 1</th>
+                        <th>Option 2</th>
+                        <th>Option 3</th>
+                        <th>Option 4</th>
+                        <th>Correct Answer</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr th:each="question : ${questions}">
+
+                        <td th:text="${question.question_id}"></td>
+
+                        <td class="question-text"
+                            th:text="${question.question_text}">
+                        </td>
+
+                        <td th:text="${question.option1}"></td>
+
+                        <td th:text="${question.option2}"></td>
+
+                        <td th:text="${question.option3}"></td>
+
+                        <td th:text="${question.option4}"></td>
+
+                        <td>
+                            <strong
+                                th:text="${question.correct_answer}">
+                            </strong>
+                        </td>
+
+                        <td>
+
+                            <a class="delete-btn"
+                               th:href="@{/admin/questions/delete/{id}(id=${question.question_id})}"
+                               onclick="return confirm('Are you sure you want to delete this question?');">
+
+                                Delete
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- No Questions -->
+                    <tr th:if="${#lists.isEmpty(questions)}">
+
+                        <td colspan="8"
+                            style="
+                                padding:35px;
+                                color:#6b7280;
+                            ">
+
+                            No questions available.
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- Back Button -->
+        <div style="
+            text-align:center;
+            margin-top:30px;
+        ">
+
+            <a href="/admin/dashboard"
+               class="btn btn-outline">
+
+                ← Back to Dashboard
+
+            </a>
+
+        </div>
+
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Results - ExamPortal</title>
+
+    	<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            Online Examination
+        </div>
+
+        <div class="nav-links">
+            <a href="/admin/dashboard">Dashboard</a>
+            <a href="/admin/questions">Questions</a>
+            <a href="/admin/questions/add">Add Question</a>
+            <a href="/admin/logout">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Results Section -->
+    <section class="dashboard">
+
+        <div class="dashboard-header">
+
+            <h1>Student Examination Results</h1>
+
+            <p>
+                View the examination results submitted by students.
+            </p>
+
+        </div>
+
+
+        <!-- Results Table -->
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Result ID</th>
+                        <th>Student ID</th>
+                        <th>Score</th>
+                        <th>Total Questions</th>
+                        <th>Exam Date</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr th:each="result : ${results}">
+
+                        <td th:text="${result.resultId}"></td>
+
+                        <td th:text="${result.studentId}"></td>
+
+                        <td>
+                            <strong
+                                th:text="${result.score}">
+                            </strong>
+                        </td>
+
+                        <td th:text="${result.totalQuestions}"></td>
+
+                        <td th:text="${result.examDate}"></td>
+
+                    </tr>
+
+
+                    <!-- No Results -->
+                    <tr th:if="${#lists.isEmpty(results)}">
+
+                        <td colspan="5"
+                            style="
+                                padding:35px;
+                                color:#6b7280;
+                            ">
+
+                            No student examination results available yet.
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- Back Button -->
+        <div style="
+            text-align:center;
+            margin-top:30px;
+        ">
+
+            <a href="/admin/dashboard"
+               class="btn btn-primary">
+
+                ← Back to Admin Dashboard
+
+            </a>
+
+        </div>
+
+    </section>
+</body>
+
+</html>

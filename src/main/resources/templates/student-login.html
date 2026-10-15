@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Student Login</title>
+
+	    <link rel="stylesheet" href="/css/style.css">
+	</head>
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        ExamPortal
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+
+        <a href="/student/register">
+            Register
+        </a>
+
+        <a href="/admin/login">
+            Admin Login
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- LOGIN -->
+
+<section class="auth-container">
+
+    <div class="auth-card">
+
+        <h2>Student Login</h2>
+
+        <p class="subtitle">
+            Login to continue your examination
+        </p>
+
+
+        <!-- Error Message -->
+
+        <div th:if="${error}"
+             style="
+                background:#fee2e2;
+                color:#b91c1c;
+                padding:12px;
+                border-radius:8px;
+                margin-bottom:20px;
+                text-align:center;
+             "
+             th:text="${error}">
+        </div>
+
+
+        <!-- Success Message -->
+
+        <div th:if="${message}"
+             style="
+                background:#dcfce7;
+                color:#166534;
+                padding:12px;
+                border-radius:8px;
+                margin-bottom:20px;
+                text-align:center;
+             "
+             th:text="${message}">
+        </div>
+
+
+        <!-- LOGIN FORM -->
+
+        <form action="/student/login"
+              method="post">
+
+            <div class="form-group">
+
+                <label>
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Enter your username"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="form-button">
+
+                Login
+
+            </button>
+
+        </form>
+
+
+        <!-- REGISTER -->
+
+        <p style="
+            text-align:center;
+            margin-top:25px;
+            color:#6b7280;
+        ">
+
+            Don't have an account?
+
+            <a href="/student/register"
+               style="
+                  color:#4f46e5;
+                  font-weight:600;
+               ">
+
+                Register here
+
+            </a>
+
+        </p>
+
+
+        <!-- HOME -->
+
+        <p style="
+            text-align:center;
+            margin-top:15px;
+        ">
+
+            <a href="/"
+               style="
+                  color:#6b7280;
+               ">
+
+                ← Back to Home
+
+            </a>
+
+        </p>
+
+    </div>
+
+</section>
+</body>
+
+</html>

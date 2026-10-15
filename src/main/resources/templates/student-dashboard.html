@@ -1,0 +1,289 @@
+```html
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard - ExamPortal</title>
+
+   	<link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        ExamPortal
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/student/dashboard">
+            Dashboard
+        </a>
+
+        <a href="/student/profile">
+            Profile
+        </a>
+
+        <a href="/student/results">
+            My Results
+        </a>
+
+        <a href="/student/logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- DASHBOARD -->
+
+<section class="dashboard">
+
+    <div class="dashboard-header">
+
+        <p style="
+            color:#4f46e5;
+            font-weight:600;
+            margin-bottom:5px;
+        ">
+            STUDENT PORTAL
+        </p>
+
+        <h1>
+            Welcome,
+            <span th:text="${studentName}">
+                Student
+            </span>! 👋
+        </h1>
+
+        <p>
+            Manage your examinations and track your performance.
+        </p>
+
+    </div>
+
+
+    <!-- DASHBOARD CARDS -->
+
+    <div class="dashboard-cards">
+
+
+        <!-- AVAILABLE EXAMS -->
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">
+                📝
+            </div>
+
+            <h3>
+                Available Exams
+            </h3>
+
+            <p>
+                Take the available online examination
+                and test your knowledge.
+            </p>
+
+            <a href="/student/exam"
+               class="btn btn-primary">
+
+                Start Exam →
+
+            </a>
+
+        </div>
+
+
+        <!-- MY RESULTS -->
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">
+                📊
+            </div>
+
+            <h3>
+                My Results
+            </h3>
+
+            <p>
+                View your previous examination scores
+                and results.
+            </p>
+
+            <a href="/student/results"
+               class="btn btn-outline">
+
+                View Results →
+
+            </a>
+
+        </div>
+
+
+        <!-- PROFILE -->
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">
+                👤
+            </div>
+
+            <h3>
+                My Profile
+            </h3>
+
+            <p>
+                View your student account
+                information.
+            </p>
+
+            <a href="/student/profile"
+               class="btn btn-outline">
+
+                View Profile →
+
+            </a>
+
+        </div>
+
+
+        <!-- LOGOUT -->
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">
+                🚪
+            </div>
+
+            <h3>
+                Logout
+            </h3>
+
+            <p>
+                Safely exit your student account.
+            </p>
+
+            <a href="/student/logout"
+               class="btn btn-outline">
+
+                Logout →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INFORMATION SECTION -->
+
+<section class="features">
+
+    <div class="section-title">
+
+        <h2>
+            Your Examination Journey
+        </h2>
+
+        <p>
+            Follow these simple steps to complete your examination.
+        </p>
+
+    </div>
+
+
+    <div class="feature-container">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔐
+            </div>
+
+            <h3>
+                1. Login
+            </h3>
+
+            <p>
+                Access your student account
+                securely.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📝
+            </div>
+
+            <h3>
+                2. Take Exam
+            </h3>
+
+            <p>
+                Answer all the questions
+                carefully.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🏆
+            </div>
+
+            <h3>
+                3. View Result
+            </h3>
+
+            <p>
+                Submit the exam and
+                check your score.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <p>
+        © 2026 Online Examination System
+    </p>
+
+    <p>
+        Built using Java Spring Boot, HTML, CSS and MySQL
+    </p>
+
+</footer>
+
+</body>
+
+</html>
+```

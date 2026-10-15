@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - ExamPortal</title>
+
+    	<link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Online Examination
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/admin/dashboard">
+            Dashboard
+        </a>
+
+        <a href="/admin/logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- DASHBOARD -->
+
+<section class="dashboard">
+
+    <div class="dashboard-header">
+
+        <p style="
+            color:#4f46e5;
+            font-weight:600;
+            margin-bottom:5px;
+        ">
+            ADMINISTRATION PANEL
+        </p>
+
+        <h1>
+            Welcome, Administrator 
+        </h1>
+
+        <p>
+            Manage questions and monitor student examination results.
+        </p>
+
+    </div>
+
+
+    <!-- ADMIN CARDS -->
+
+    <div class="dashboard-cards">
+
+
+        <!-- ADD QUESTIONS -->
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">
+                ➕
+            </div>
+
+            <h3>
+                Add Questions
+            </h3>
+
+            <p>
+                Create new examination questions
+                with multiple-choice options.
+            </p>
+
+            <a href="/admin/questions/add"
+               class="btn btn-primary">
+
+                Add Question →
+
+            </a>
+
+        </div>
+
+
+        <!-- VIEW QUESTIONS -->
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">
+                📋
+            </div>
+
+            <h3>
+                View Questions
+            </h3>
+
+            <p>
+                View all questions currently
+                available for the examination.
+            </p>
+
+            <a href="/admin/questions"
+               class="btn btn-outline">
+
+                View Questions →
+
+            </a>
+
+        </div>
+
+
+        <!-- STUDENT RESULTS -->
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">
+                📊
+            </div>
+
+            <h3>
+                Student Results
+            </h3>
+
+            <p>
+                Monitor examination scores
+                submitted by students.
+            </p>
+
+            <a href="/admin/results"
+               class="btn btn-outline">
+
+                View Results →
+
+            </a>
+
+        </div>
+
+
+        <!-- MANAGE QUESTIONS -->
+
+        <div class="dashboard-card">
+
+            <div class="card-icon">
+                ⚙️
+            </div>
+
+            <h3>
+                Manage Questions
+            </h3>
+
+            <p>
+                View and remove questions
+                from the examination.
+            </p>
+
+            <a href="/admin/questions"
+               class="btn btn-outline">
+
+                Manage →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ADMIN INFORMATION -->
+
+<section class="features">
+
+    <div class="section-title">
+
+        <h2>
+            Administration Features
+        </h2>
+
+        <p>
+            Manage your online examination system efficiently.
+        </p>
+
+    </div>
+
+
+    <div class="feature-container">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📝
+            </div>
+
+            <h3>
+                Question Management
+            </h3>
+
+            <p>
+                Add, view and delete examination questions.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                👨‍🎓
+            </div>
+
+            <h3>
+                Student Monitoring
+            </h3>
+
+            <p>
+                View examination results submitted
+                by students.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔐
+            </div>
+
+            <h3>
+                Administration
+            </h3>
+
+            <p>
+                Manage the examination system
+                through a dedicated admin panel.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+</body>
+
+</html>

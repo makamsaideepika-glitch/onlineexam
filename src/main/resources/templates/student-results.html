@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Results - ExamPortal</title>
+
+    	<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            ExamPortal
+        </div>
+
+        <div class="nav-links">
+            <a href="/student/dashboard">Dashboard</a>
+            <a href="/student/exam">Take Exam</a>
+            <a href="/student/profile">Profile</a>
+            <a href="/student/logout">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Results Section -->
+    <section class="dashboard">
+
+        <div class="dashboard-header">
+
+            <h1>My Examination Results</h1>
+
+            <p>
+                View your previous examination scores and performance.
+            </p>
+
+        </div>
+
+
+        <!-- Results Table -->
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Result ID</th>
+                        <th>Score</th>
+                        <th>Total Questions</th>
+                        <th>Exam Date</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr th:each="result : ${results}">
+
+                        <td th:text="${result.resultId}"></td>
+
+                        <td>
+                            <strong
+                                th:text="${result.score}">
+                            </strong>
+                        </td>
+
+                        <td th:text="${result.totalQuestions}"></td>
+
+                        <td th:text="${result.examDate}"></td>
+
+                    </tr>
+
+
+                    <!-- No Results -->
+                    <tr th:if="${#lists.isEmpty(results)}">
+
+                        <td colspan="4"
+                            style="
+                                padding:30px;
+                                color:#6b7280;
+                            ">
+
+                            No examination results available yet.
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- Back Button -->
+        <div style="
+            text-align:center;
+            margin-top:30px;
+        ">
+
+            <a href="/student/dashboard"
+               class="btn btn-primary">
+
+                Back to Dashboard
+
+            </a>
+
+        </div>
+
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Online Exam - ExamPortal</title>
+
+   	<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            ExamPortal
+        </div>
+
+        <div class="nav-links">
+            <a href="/student/dashboard">Dashboard</a>
+            <a href="/student/results">Results</a>
+            <a href="/student/profile">Profile</a>
+            <a href="/student/logout">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Exam Section -->
+    <section class="dashboard">
+
+        <div class="dashboard-header">
+
+            <h1>Online Examination</h1>
+
+            <p>
+                Read each question carefully and select the correct answer.
+            </p>
+
+        </div>
+
+
+        <!-- Exam Form -->
+        <form action="/student/exam/submit"
+              method="post"
+              onsubmit="return confirmSubmit();">
+
+            <div th:each="question, stat : ${questions}"
+                 class="dashboard-card"
+                 style="margin-bottom: 25px;">
+
+                <!-- Question Number -->
+                <h3>
+                    Question <span th:text="${stat.count}"></span>
+                </h3>
+
+                <!-- Question -->
+                <p style="font-size: 18px;
+                          font-weight: 600;
+                          color: #111827;
+                          margin-bottom: 20px;"
+                   th:text="${question.question_text}">
+                </p>
+
+
+                <!-- Option 1 -->
+                <label style="display:block;
+                              padding:12px;
+                              margin-bottom:10px;
+                              border:1px solid #e5e7eb;
+                              border-radius:8px;
+                              cursor:pointer;">
+
+                    <input type="radio"
+                           th:name="'question_' + ${question.question_id}"
+                           value="1"
+                           required>
+
+                    <span th:text="${question.option1}"></span>
+
+                </label>
+
+
+                <!-- Option 2 -->
+                <label style="display:block;
+                              padding:12px;
+                              margin-bottom:10px;
+                              border:1px solid #e5e7eb;
+                              border-radius:8px;
+                              cursor:pointer;">
+
+                    <input type="radio"
+                           th:name="'question_' + ${question.question_id}"
+                           value="2">
+
+                    <span th:text="${question.option2}"></span>
+
+                </label>
+
+
+                <!-- Option 3 -->
+                <label style="display:block;
+                              padding:12px;
+                              margin-bottom:10px;
+                              border:1px solid #e5e7eb;
+                              border-radius:8px;
+                              cursor:pointer;">
+
+                    <input type="radio"
+                           th:name="'question_' + ${question.question_id}"
+                           value="3">
+
+                    <span th:text="${question.option3}"></span>
+
+                </label>
+
+
+                <!-- Option 4 -->
+                <label style="display:block;
+                              padding:12px;
+                              border:1px solid #e5e7eb;
+                              border-radius:8px;
+                              cursor:pointer;">
+
+                    <input type="radio"
+                           th:name="'question_' + ${question.question_id}"
+                           value="4">
+
+                    <span th:text="${question.option4}"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- Submit Button -->
+            <div style="text-align:center; margin-top:30px;">
+
+                <button type="submit"
+                        class="form-button"
+                        style="max-width:300px;">
+
+                    Submit Examination
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>
+            © 2026 ExamPortal | Online Examination System
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        function confirmSubmit() {
+
+            return confirm(
+                "Are you sure you want to submit the examination?"
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>
